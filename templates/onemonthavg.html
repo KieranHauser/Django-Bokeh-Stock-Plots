@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include 'snippets/css.html' %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8">
+            <head>
+                <meta charset="UTF-8">
+                <title>One Month Average Graph</title>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bokeh/0.12.7/bokeh.min.css" type="text/css"/>
+            </head>
+            <body>
+                {% include 'nav.html' with ticker=ticker %}
+                {{ script | safe }}
+            </body>
+                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bokeh/0.12.7/bokeh.min.js"></script>
+                {{ div | safe }}
+                {% include 'snippets/js.html' %}
+        </div>
+    </div>
+</div>
+</html>

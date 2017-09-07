@@ -1,0 +1,15 @@
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+    <form id="input" method="GET" action="">{% csrf_token %}
+        <p>
+            <div class="form-group">
+            Ticker: <input type="text" name="ticker" value="{{ request.GET.ticker }}" placeholder='{{ ticker }}'/></br>
+                <select class="form-control" name="choice" value="{{ request.GET.choice }}" placeholder="{{ graph }}"required>Graph:
+                    <option name="singleview">Single Stock</option>
+                    <option name="candlestick">Candlestick</option>
+                    <option name="onemonth">One Month Average</option>
+                </select>
+            <input type="submit" class="btn btn-default" value="Submit"/>
+            </div>
+            </p>
+    </form>
+</nav>
