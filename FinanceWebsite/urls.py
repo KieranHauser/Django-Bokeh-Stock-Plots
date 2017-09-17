@@ -20,7 +20,4 @@ from visualization.views import homeview
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', homeview, name='homeview'),
-    # url(r'^candlestick/$', StockCandleStickView.as_view(), name='candlestick'),
-    # url(r'^singleview/$', StockSingleView.as_view(), name='singleview'),
-    # url(r'^onemonth/$', StockView.as_view(), name='onemonth')
 ]

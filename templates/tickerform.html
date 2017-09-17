@@ -1,18 +1,26 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-sm-8">
-            <form id="input" method="GET" action="">{% csrf_token %}
+        <div class="col-md-6 col-md-offset-3">
+            <div class="thumbnail">
+                <img src="https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/RPUX05EF6J.jpg" class="img-responsive">
+            </div>
+            <form class="form-inline" id="input" method="GET">{% csrf_token %}
             <p>
-            <div class="form-group">
-                    Ticker: <input type="text" name="ticker" value="{{ request.GET.ticker }}" required/></br>
-                <select class="form-control" name="choice" value="{{ request.GET.choice }}" required>Graph:
+
+            <div class="form-group" style="align: center;">
+                Graph:  <select class="form-control" name="choice" value="{{ request.GET.choice }}" required>
                     <option name="singleview">Single Stock</option>
                     <option name="candlestick">Candlestick</option>
                     <option name="onemonth">One Month Average</option>
-                </select>
-            <input type="submit" class="btn btn-default" value="Submit"/>
+                        </select>
+                <div class="input-group">
+                    <input class="form-control" type="text" name="ticker" placeholder="Ticker" value="{{ request.GET.ticker }}" required/>
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                    </span>
+                </div>
             </div>
             </p>
             </form>

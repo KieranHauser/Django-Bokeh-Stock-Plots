@@ -2,6 +2,7 @@ import bokeh
 from bokeh.plotting import figure, show, output_file, save, ColumnDataSource
 from bokeh.layouts import gridplot
 from bokeh.embed import components
+from bokeh.palettes import Spectral4
 from bokeh.models import HoverTool, NumeralTickFormatter
 from math import pi
 import pandas as pd
@@ -48,29 +49,36 @@ def single_stock(ticker):
     source = ColumnDataSource(data=dict(
         x=df['Date'],
         y=df['Adj. High'],
+        y1=df['Adj. Open'],
+        y2=df['Adj. Low'],
+        y3=df['Adj. Close'],
         Volume=df['Volume'],
     ))
     tools = 'pan,wheel_zoom,box_zoom,reset,save'
     hover = HoverTool(tooltips=[
         ("Date", "@x{%F}"),
-        ("Price", "@y"),
+        ("Adj. High", "@y"),
+        ("Adj. Open", "@y1"),
+        ("Adj. Low", "@y2"),
+        ("Adj. Close", "@y3"),
         ("Volume", "@Volume{0.00 a}"),
     ], formatters={
         'x': 'datetime',
         },
-        mode='vline'
+        mode='mouse'
     )
     p = figure(plot_width=1000, plot_height=400, x_axis_type='datetime', tools=[hover, tools],
                title='{}'.format(ticker), active_scroll='wheel_zoom', active_drag='pan', toolbar_location='above')
     p.grid.grid_line_alpha = 0.3
     p.xaxis.axis_label = 'Date'
     p.yaxis.axis_label = 'Price'
-    p.legend.location = 'top_left'
-    p.line('x', 'y', legend='Adjusted High', color='navy', alpha=0.5, source=source)
-    # p.line(df['Date'], df['Adj. Open'], legend='Adjusted Open', color='blue', alpha=0.5)
-    # p.line(df['Date'], df['Adj. Low'], legend='Adjusted Low', color='olive', alpha=0.5)
-    # p.line(df['Date'], df['Adj. Close'], legend='Adjusted Close', color='red', alpha=0.5)
+    p.legend.location = 'top_right'
+    p.line('x', 'y', legend='Adjusted High', color=Spectral4[0], alpha=0.5, source=source)
+    p.line('x', 'y1', legend='Adjusted Open', color=Spectral4[1], alpha=0.5, source=source)
+    p.line('x', 'y2', legend='Adjusted Low', color=Spectral4[2], alpha=0.5, source=source)
+    p.line('x', 'y3', legend='Adjusted Close', color=Spectral4[3], alpha=0.5, source=source)
     p2 = volume_helper(ticker, hover, tools, source, p)
+    p.legend.click_policy = "hide"
     return gridplot([p, p2], ncols=1, merge_tools=True, match_aspect=True)
 
 
@@ -88,17 +96,23 @@ def make_candlestick(ticker):
     source = ColumnDataSource(data=dict(
         x=df['Date'],
         y=df['Adj. High'],
+        y1=df['Adj. Open'],
+        y2=df['Adj. Low'],
+        y3=df['Adj. Close'],
         Volume=df['Volume'],
     ))
     tools = 'pan,wheel_zoom,box_zoom,reset,save'
     hover = HoverTool(tooltips=[
         ("Date", "@x{%F}"),
-        ("Price", "@y"),
-        ("Volume", "@Volume{0.00 a}")
+        ("Adj. High", "@y"),
+        ("Adj. Open", "@y1"),
+        ("Adj. Low", "@y2"),
+        ("Adj. Close", "@y3"),
+        ("Volume", "@Volume{0.00 a}"),
     ], formatters={
         'x': 'datetime',
     },
-        mode='mouse'
+        mode='vline'
     )
     w = 12 * 60 * 60 * 1000
     p = figure(plot_width=1000, plot_height=400, x_axis_type="datetime", tools=[hover, tools],
@@ -106,12 +120,13 @@ def make_candlestick(ticker):
 
     p.xaxis.major_label_orientation = pi/4
     p.grid.grid_line_alpha = 0.3
-
-    p.segment(df.Date, df['Adj. High'], df.Date, df['Adj. Low'], color='black', source=source)
+    p.xaxis.axis_label = 'Date'
+    p.yaxis.axis_label = 'Price'
+    p.segment(df.Date, df['Adj. High'], df.Date, df['Adj. Low'], color='black', source=source, line_width=0.5)
     p.vbar(df.Date[inc], w, df['Adj. Open'][inc], df['Adj. Close'][inc], fill_color="#D5E1DD", line_color="black",
-           source=source)
+           line_width=0.5)
     p.vbar(df.Date[dec], w, df['Adj. Open'][dec], df['Adj. Close'][dec], fill_color="#F2583E", line_color="black",
-           source=source)
+           line_width=0.5)
     p2 = volume_helper(ticker, hover, tools, source, p)
     return gridplot([p, p2], ncols=1)
 
