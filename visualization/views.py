@@ -15,7 +15,7 @@ def homeview(request):
         ticker = request.GET.get('ticker')
         graph = request.GET.get('choice')
         if graph:
-            if graph == 'Single Stock':
+            if graph == 'Line':
                 plot = single_stock(ticker)
                 script, div = components(plot)
                 context = {

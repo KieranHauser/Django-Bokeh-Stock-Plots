@@ -13,7 +13,7 @@ quandl.ApiConfig.api_key = "yg94pP6kwTx8vKNJYaDc"
 
 
 def volume_helper(ticker, hover, tools, source, p1):
-    """
+    """ Creates a volume graph below the chose graph based on stock data with joined interactive x-axis.
     :param ticker:
     :param hover:
     :param tools:
@@ -37,7 +37,7 @@ def volume_helper(ticker, hover, tools, source, p1):
 
 
 def single_stock(ticker):
-    """Creates a grpah based on a ticker with it's Adjusted High
+    """Creates an interactive graph based on a ticker with it's Adjusted High, Open, Low, Close
     :param ticker: str
     :return: Bokeh Plot
     """
