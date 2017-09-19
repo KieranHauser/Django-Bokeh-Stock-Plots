@@ -4,9 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/templates/tickerform.html" description="    &lt;div class=&quot;row&quot;&gt;&#10;        &lt;div class=&quot;col-md-6..." line="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="318f81d0-0a3f-4841-93b5-e04ecd3846c4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FinanceWebsite/settings/__init__.py" afterPath="$PROJECT_DIR$/FinanceWebsite/settings/__init__.py" />
-    </list>
+    <list default="true" id="318f81d0-0a3f-4841-93b5-e04ecd3846c4" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
