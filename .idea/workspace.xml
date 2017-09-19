@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="318f81d0-0a3f-4841-93b5-e04ecd3846c4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FinanceWebsite/settings/__init__.py" afterPath="$PROJECT_DIR$/FinanceWebsite/settings/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FinanceWebsite/settings/production.py" afterPath="$PROJECT_DIR$/FinanceWebsite/settings/production.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -81,11 +80,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="production.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="production.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FinanceWebsite/settings/production.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="27" column="58" lean-forward="false" selection-start-line="27" selection-start-column="58" selection-end-line="27" selection-end-column="58" />
+            <state relative-caret-position="30">
+              <caret line="3" column="51" lean-forward="true" selection-start-line="3" selection-start-column="51" selection-end-line="3" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -101,13 +100,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/FinanceWebsite/settings/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="8" lean-forward="true" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
+            <state relative-caret-position="60">
+              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding>
-                <marker date="1505835642000" expanded="true" signature="0:73" ph="..." />
+                <marker date="1505835755000" expanded="true" signature="23:104" ph="..." />
               </folding>
             </state>
           </provider>
@@ -220,8 +219,8 @@
         <option value="$PROJECT_DIR$/FinanceWebsite/settings/local.py" />
         <option value="$PROJECT_DIR$/FinanceWebsite/settings/base.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/FinanceWebsite/settings/__init__.py" />
         <option value="$PROJECT_DIR$/FinanceWebsite/settings/production.py" />
+        <option value="$PROJECT_DIR$/FinanceWebsite/settings/__init__.py" />
       </list>
     </option>
   </component>
@@ -888,21 +887,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FinanceWebsite/settings/__init__.py">
+    <entry file="file://$PROJECT_DIR$/FinanceWebsite/settings/production.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="8" lean-forward="true" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
-          <folding>
-            <marker date="1505835642000" expanded="true" signature="0:73" ph="..." />
-          </folding>
+        <state relative-caret-position="30">
+          <caret line="3" column="51" lean-forward="true" selection-start-line="3" selection-start-column="51" selection-end-line="3" selection-end-column="51" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FinanceWebsite/settings/production.py">
+    <entry file="file://$PROJECT_DIR$/FinanceWebsite/settings/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="27" column="58" lean-forward="false" selection-start-line="27" selection-start-column="58" selection-end-line="27" selection-end-column="58" />
-          <folding />
+        <state relative-caret-position="60">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding>
+            <marker date="1505835755000" expanded="true" signature="23:104" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
