@@ -36,16 +36,21 @@ def volume_helper(ticker, hover, tools, source, p1):
     return p
 
 
+def df_date_change(ticker):
+    """Sets up the dataframe's 'Date' index"""
+    df = quandl.get('WIKI/{}'.format(ticker))
+    df = df.reset_index()
+    df['Date'] = pd.to_datetime(df['Date'])
+    return df
+
+
 def single_stock(ticker):
     """Creates an interactive graph based on a ticker with it's Adjusted High, Open, Low, Close
     :param ticker: str
     :return: Bokeh Plot
     """
     # choices is OHLC Adj O/C or Vol
-    api_req = quandl.get('WIKI/{}'.format(ticker))
-    df = api_req
-    df = df.reset_index()
-    df['Date'] = pd.to_datetime(df['Date'])
+    df = df_date_change(ticker)
     source = ColumnDataSource(data=dict(
         x=df['Date'],
         y=df['Adj. High'],
@@ -87,10 +92,7 @@ def make_candlestick(ticker):
     :param ticker: str
     :return: Bokeh Plot
     """
-    api_req = quandl.get('WIKI/{}'.format(ticker))
-    df = api_req
-    df = df.reset_index()
-    df['Date'] = pd.to_datetime(df['Date'])
+    df = df_date_change(ticker)
     inc = df['Adj. Close'] > df['Adj. Open']
     dec = df['Adj. Open'] > df['Adj. Close']
     source = ColumnDataSource(data=dict(
@@ -136,10 +138,7 @@ def month_average(ticker):
     :param ticker: str
     :return: Bokeh Plot
     """
-    api_req = quandl.get('WIKI/{}'.format(ticker))
-    df = api_req
-    df = df.reset_index()
-    df['Date'] = pd.to_datetime(df['Date'])
+    df = df_date_change(ticker)
     stock = np.array(df['Adj. Close'])  # eventually make drop down menu for any
     stock_dates = np.array(df['Date'], dtype=np.datetime64)
     window_size = 30
